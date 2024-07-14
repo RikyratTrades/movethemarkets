@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOM (Move the Markets) Trading Strategy</title>
+    <style>
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+        }
+
+        header {
+            background-color: #1e1e1e;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #00b0ff;
+        }
+
+        main {
+            width: 80%;
+            margin-top: 120px; /* Adjust margin to create space for header */
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            height: calc(100vh - 120px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #2e2e2e;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+            opacity: 1;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .content h2 {
+            color: #ffffff;
+        }
+
+        .content p {
+            color: #cccccc;
+        }
+
+        .hint {
+            background-color: #333;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .step {
+            margin-bottom: 20px;
+        }
+
+        .step img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .dos-donts ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .dos-donts li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                width: 100%;
+                margin-top: 160px; /* Adjust margin to create more space for header */
+                height: auto;
+                padding-top: 0; /* Adjust padding to ensure content starts right after header */
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 10px; /* Add margin to separate from content */
+            }
+
+            .buttons-container button {
+                width: 100%;
+                margin-bottom: 10px; /* Add margin between buttons */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MOM (Move the Markets) Trading Strategy</h1>
+    </header>
+
+    <main>
+        <section id="overview" class="content">
+            <h2>Overview</h2>
+            <img id="overview-img" src="amd-long.png" alt="Overview Image" />
+            <p>The MOM (Move the Markets) trading strategy is based on the AMD (Accumulation, Manipulation, Distribution) model. It ususes FVGS and IFVGS to catch big moves.
+                If you are not familiar with the AMD cycle do learn that first.As all strategies this isnt 100% but rather closer to 82%.Do your own research before trading this.
+                I foun this from ghosttraders an PB Tradings Reels.
+            </p>
+        </section>
+
+        <section id="steps" class="content">
+            <h2>Steps</h2>
+
+            <div id="step1" class="step">
+                <img id="step1-img" src="accumulation-long.png" alt="Accumulation Long" />
+                <h3>Identify Accumulation Zone</h3>
+                <p>Look for a consolidation area on the price chart where the market is just moving sideways in a range.</p>
+                <div class="hint">Hint: An ideal accumulation zone typically has 4-7 candles.</div>
+            </div>
+
+            <div id="step2" class="step">
+                <img id="step2-img" src="manipulation-long.png" alt="Manipulation long" />
+                <h3>Spot the Manipulation Leg</h3>
+                <p>When you see a sudden, sharp move breaking out from the accumulation zone, mark it as the manipulation leg.</p>
+                <div class="hint">Hint: An ideal manipulation zone usually has 3-4 candles.</div>
+            </div>
+
+            <div id="step3" class="step">
+                <img id="step3-img" src="pathway-long.png" alt="Pathway Long" />
+                <h3>Identify the Pathway</h3>
+                <p>Observe the move recovering from the manipulation leg. This is only until it catches upto the accumulation zone.</p>
+                <div class="hint">Hint: The ideal pathway usually consists of 2-3 sudden candles moving back from the manipulation to a nearby FVG.</div>
+            </div>
+
+            <div id="step4" class="step">
+                <img id="step4-img" src="fvg-long.png" alt="FVG Long" />
+                <h3>Mark Fair Value Gaps (FVGs)</h3>
+                <p>Mark any FVGs that appear. Focus on the highest timeframe FVG for this strategy.</p>
+                <div class="hint">Hint: Mark the highest timeframe FVG carefully.</div>
+            </div>
+
+            <div id="step5" class="step">
+                <img id="step5-img" src="ifvg-long.png" alt="IFVG Long" />
+                <h3>Trade the Inverse FVG</h3>
+                <p>Once the highest timeframe FVG gets inversed, enter a long</p>
+                <div class="hint">Hint: Set your stop loss at the low of the manipulation leg for long entries.</div>
+            </div>
+
+            <div id="step6" class="step">
+                <h3>Entry</h3>
+                <img id="entry-img-long" class="entry-img long active" src="entry-long.png" alt="Entry Image for Long" />
+            
+                <p class="long">Take a Long as a canle inverses above the bearish FVG converts it into a Bullish IFVG.Set your stop loss at the low of the manipulation.Only take the trade if the high of the accumulation zone gets you a 0.7-1:1 RR.Set you take profit targetting recent highs or sellside liqudity.Set your stop loss to breakven as you break the accumulation high and take partial along the way</p>
+            </div>
+        </section>
+
+        <section id="ideal-entry" class="content">
+            <h2>Ideal Entry</h2>
+            <img id="ideal-entry-img" src="entry-long.png" alt="Ideal Entry Image" />
+            <p class="long">In an ideal entry:
+                The accumulation zone would be 4-7 candles,The manipulation move would be 3-4 candles,the path way would be 2-4 candles,the highest timeframe ifvg would be near the manipulation low,you get a 0.8-1 RR at accumulation zone high,the stop loss would be manipulation leg low.Target woul be some sellside liqudity
+            or highs.</p>
+        </section>
+
+        <section id="dos-and-donts" class="content">
+            <h2>Do's and Don'ts</h2>
+            <div class="dos-donts">
+                <h3>DOs:</h3>
+                <ul>
+                    <li>Dont take setups which done form in FOMO.</li>
+                    <li>Practice identifying accumulation zones and manipulation legs on historical charts.</li>
+                    <li>Use killzones for better entries.</li>
+                    <li>Try to take long entries at low an vice versa.</li>
+                </ul>
+
+                <h3>DON'Ts:</h3>
+                <ul>
+                    <li>Don't enter a trade if the market conditions do not match the identified patterns.</li>
+                    <li>Avoid chasing trades that do not have clear accumulation and manipulation signals.</li>
+                    <li>Avoid placing trades without a clear risk management plan.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // No need for toggleMode function and buttons since default is long entry
+    </script>
+</body>
+</html>
